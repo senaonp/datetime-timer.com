@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+	width: 100%;
+	font-family: arial;
+	position: absolute;
+	background-color: rgb(250,250,250);
+	top: 0;
+	left: 0;
+}
+
+/* --------------------------------- */
+/* ------------- navbar ------------ */
+/* --------------------------------- */
+
+#navbar {
+	width: 100%;
+	height: 56px;
+	position: fixed;
+	background-color: rgb(200,200,200);
+	border-bottom: 2px solid rgba(50,50,50,0.7);
+}
+#navbar li {
+	width: 15%;
+	height: 34px;
+	text-align: center;
+	font-size: 1em;
+	padding: 10px;
+	display: inline;
+	float: right;
+	border: 1px solid rgb(150,150,150);
+	cursor: pointer;
+	transition: 0.3s;
+}
+#navbar li:hover {
+	background-color: rgb(170,170,170);
+}
+#navbar a {
+	text-decoration: none;
+	color: rgb(50,50,50);
+}
+#navbar ul {
+	padding: 0;
+	margin: 0;
+}
+#navbar img {
+	max-width: 50%; 
+	height: 100%;
+	padding: 3px;
+	float: left;
+}
+
+/* --------------------------------- */
+/* ------------ banner ------------ */
+/* --------------------------------- */
+
+#banner {
+	background-color: rgba(10,10,10,0.9);
+	display: inline-block;
+	position: relative;
+	margin-bottom: 30px;
+	border-top: 4px solid rgba(100,100,100,0.5);
+	width: 100%;
+}
+#banner p {
+	margin-left: 70px;
+	color: white;
+}
+#banner button {
+	position: absolute;
+	bottom: 7px;
+	right: 7px;
+	background-color: rgb(200,200,200);
+	padding: 5px 15px;
+	cursor: pointer;
+}
+#banner a {
+	color: springgreen;
+}
+
+/* --------------------------------- */
+/* ------------ content ------------ */
+/* --------------------------------- */
+
+#content {
+	width: 100%;
+	margin-top: 50px;
+	padding-top: 10px;
+}
+.vPadding {
+    height: 15px;
+    background-color: rgb(20,20,20);
+}
+.eventText {
+	text-decoration: underline;
+	color: rgb(150,150,150);
+	cursor: pointer;
+}
+
+/* --------------------------------- */
+/* ------------ helpers ------------ */
+/* --------------------------------- */
+
+
+
+/* --------------------------------- */
+/* ------------ footer ------------- */
+/* --------------------------------- */
+
+#footer {
+	bottom: 0;
+	margin: 50px 0 0 0;
+	padding: 20px 0 0 0;
+	height: 150px;
+	text-align: center;
+	color: rgb(200,200,200);
+	background-color: rgb(50,50,50);
+}
+#footer a {
+	color: springgreen;
+	background-color: rgb(50,50,50);
+}
+#footer span {
+	width: 80%;
+	margin: auto;
+}
