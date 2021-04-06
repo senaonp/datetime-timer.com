@@ -1,14 +1,9 @@
 // get day difference between now and a datetime
 var getDateTimeDiff = function(startDate, endDate) {
-	diff = endDate - startDate;
-	if (nowStart) {
-		let d = new Date();
-	} else {
-		let d = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
-	}
+	diff = (endDate - startDate)/msInDay;
 	return [
-		Math.floor(diff/msInDay),
-		msToHMS(((diff/msInDay)-Math.floor(diff/msInDay))*msInDay)
+		Math.floor(diff),
+		msToHMS((diff-Math.floor(diff))*msInDay)
 	];
 };
 
@@ -24,7 +19,7 @@ var msToHMS = function(time) {
 var evalOpt = function(bool) {
 	nowStart = bool;
 	if (bool) {
-		uncheckInput(elemSelector('#customOpt')); 
+		uncheckInput(elemSelector('#customOpt'));
 	} else {
 		uncheckInput(elemSelector('#nowOpt')); 
 	};
@@ -36,6 +31,8 @@ var getNow = function() {
 	var date = new Date();
 	return [date.getFullYear(), date.getMonth()+1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()];
 }
+
+// add leading zero if number is single-digit
 var displayTime = function(ts) {
 	disp = [ts[0],ts[1],ts[2]];
 	for(i=0; i<disp.length; i+=1) { if (disp[i] < 10) { disp[i] = "0"+disp[i]; } };
@@ -44,15 +41,13 @@ var displayTime = function(ts) {
 
 // refresh timer
 var refresh = setInterval(function(ids) {
-	// set nowtime
 	now = getNow();
 	nowTime = displayTime([now[3], now[4], now[5]]);
 	elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
-	elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
-	// update timer
+	elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+":"+nowTime[2]+"]";
 	if (nowStart) { startDateTime = new Date(); }
 	dtDiffDisplay();
-}, 500);
+}, 1000);
 
 // display datetime difference
 var dtDiffDisplay = function() {
@@ -66,13 +61,26 @@ var dtDiffDisplay = function() {
 		elemSelector("#hours").innerText = dtDiffTime[0];
 		elemSelector("#minutes").innerText = dtDiffTime[1];
 		elemSelector("#seconds").innerText = dtDiffTime[2];
-		if (!nowStart) { // fix display due to rounding sometimes causing a one second diff
-			if (dtDiffTime[2] >= 55) { elemSelector("#minutes").innerText = parseInt(dtDiffTime[1])+1; };
-			elemSelector("#seconds").innerText = "00";
-		};
+		if (!nowStart) { roundCustom(dtDiff, dtDiffTime); return; };
 	} else {
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";
+	}
+};
+
+// estimate difference between custom dates
+var roundCustom = function(dtDiff, dtDiffTime) {
+	if (dtDiffTime[2] >= 59) {
+		elemSelector("#minutes").innerText = parseInt(dtDiffTime[1])+1;
+		elemSelector("#seconds").innerText = "00";
+	}
+	if ( dtDiffTime[1] == 60) {
+		elemSelector("#hours").innerText = parseInt(dtDiffTime[0])+1;
+		elemSelector("#minutes").innerText = "00";
+	}
+	if ( dtDiffTime[0] == 24) {
+		elemSelector("#days").innerText = parseInt(dtDiff[0])+1;
+		elemSelector("#hours").innerText = "00";
 	}
 };
 
@@ -132,6 +140,7 @@ var submitTimer = function() {
 var msInDay = 1000*60*60*24;
 var msInHr = 1000*60*60;
 var url = "https://datetime-timer.com?";
+var nowStart = true;
 
 var startDateTime = null;
 var endDateTime = null;
@@ -139,13 +148,15 @@ var dateDiff = null;
 var urlEndDateTime = null;
 var urlStartDateTime = null;
 var dtDiff = null;
+var timerH = null;
+var timerM = null;
+var timerS = null;
 var dtDiffTime=[];
 var disp=[];
 var query=[];
-var nowStart = true;
 
 var now = getNow();
 var nowTime = displayTime([now[3], now[4], now[5]]);
 elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
-elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+(nowTime[1])+"]";
+elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+(nowTime[1])+":"+nowTime[2]+"]";
 setDefaultValues();
