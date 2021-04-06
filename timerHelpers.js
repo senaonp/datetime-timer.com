@@ -12,7 +12,7 @@ var getDateTimeDiff = function(startDate, endDate) {
 	];
 };
 
-// get time difference between now and a datetime
+// turn milliseconds to [hours, minutes, seconds]
 var msToHMS = function(time) {
 	timerH = Math.floor(time/msInHr);
 	timerM = Math.floor((time/msInHr - timerH)*60);
@@ -22,19 +22,13 @@ var msToHMS = function(time) {
 
 // evaluate start date-time options
 var evalOpt = function(bool) {
+	nowStart = bool;
 	if (bool) {
 		uncheckInput(elemSelector('#customOpt')); 
-		setNowStart(true);
 	} else {
 		uncheckInput(elemSelector('#nowOpt')); 
-		setNowStart(false);
 	};
 	elemSelector("#result").style.display = "none";
-}
-
-// set nowStart
-var setNowStart = function(bool) {
-	nowStart = bool;
 }
 
 // get nowTime
@@ -42,17 +36,17 @@ var getNow = function() {
 	var date = new Date();
 	return [date.getFullYear(), date.getMonth()+1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()];
 }
-var displayNow = function(ts) {
-	var disp = [ts[0],ts[1]];
+var displayTime = function(ts) {
+	disp = [ts[0],ts[1],ts[2]];
 	for(i=0; i<disp.length; i+=1) { if (disp[i] < 10) { disp[i] = "0"+disp[i]; } };
 	return disp;
 };
 
 // refresh timer
-var refresh = setInterval(function() {
+var refresh = setInterval(function(ids) {
 	// set nowtime
 	now = getNow();
-	nowTime = displayNow([now[3], now[4]]);
+	nowTime = displayTime([now[3], now[4], now[5]]);
 	elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
 	elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
 	// update timer
@@ -67,14 +61,15 @@ var refresh = setInterval(function() {
 // display datetime difference
 var dtDiffDisplay = function() {
 	dtDiff = getDateTimeDiff(startDateTime, endDateTime);
+	dtDiffTime = displayTime(dtDiff[1]);
 	if (dtDiff[0] >= 0) {
 		elemSelector("#timerPassed").style.display = "none";
 		elemSelector("#timer").style.display = "block";
 		elemSelector("#resultStart").innerText = startDateTime;
 		elemSelector("#days").innerText = dtDiff[0];
-		elemSelector("#hours").innerText = dtDiff[1][0];
-		elemSelector("#minutes").innerText = dtDiff[1][1];
-		elemSelector("#seconds").innerText = dtDiff[1][2];
+		elemSelector("#hours").innerText = dtDiffTime[0];
+		elemSelector("#minutes").innerText = dtDiffTime[1];
+		elemSelector("#seconds").innerText = dtDiffTime[2];
 	} else {
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";
@@ -147,10 +142,12 @@ var endDateTime = null;
 var dateDiff = null;
 var urlEndDatetime = null;
 var dtDiff = null;
+var dtDiffTime=[];
+var disp=[];
 var nowStart = true;
 
 var now = getNow();
-var nowTime = displayNow([now[3], now[4]]);
+var nowTime = displayTime([now[3], now[4], now[5]]);
 elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
-elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
+elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+(nowTime[1])+"]";
 setDefaultValues();
