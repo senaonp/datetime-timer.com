@@ -44,7 +44,7 @@ body {
 	margin: 0;
 }
 #navbar img {
-	max-width: 50%; 
+	max-width: 55%; 
 	height: 100%;
 	float: left;
 }
@@ -97,11 +97,16 @@ body {
 	display: block;
 	margin: 15px 0;
 }
+.center {
+	text-align: center;
+}
+.bottomBorder {
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgb(150,150,150);
+}
 #submit {
 	font-size: 1.1em;
-	width: 10%;
-	padding: 5px 0;
-	margin: 0 45%;
+	padding: 5px 10px;
 }
 #customLink {
 	padding: 8px;
@@ -132,7 +137,7 @@ body {
 	width: 45%;
 	max-height: 400px;
 	margin: 2%;
-	padding: 10px 0;
+	padding: 10px;
 	border: 1px solid rgb(150,150,150);
 	border-radius: 10px;
 	box-sizing: border-box;
@@ -141,6 +146,9 @@ body {
 #nowOpt, #customOpt {
 	transform: scale(1.2);
 	margin: 10px 0;
+}
+#startDateTime input {
+	max-width: 80%;
 }
 
 
@@ -164,4 +172,12 @@ body {
 #footer span {
 	width: 80%;
 	margin: auto;
+}
+
+
+@media only screen and (max-width: 700px) {
+	#navbar img {
+		margin-top: 10px;
+		height: 50%;
+	}
 }

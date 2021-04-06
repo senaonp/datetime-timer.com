@@ -20,13 +20,13 @@
 				<h1>Start date-time</h1>
 				<div id="startNow">
 					<input id="nowOpt" type="radio" checked=true oninput="uncheckInput(elemSelector('#customOpt')); setOpt(this)"></input>
-					<p>Now</p>
+					<p class="bottomBorder">Now</p>
 					<p>date - <span id="nowDate"></span></p>
 					<p>time - <span id="nowTime"></span></p>
 				</div>
 				<div id="startCustom">
 					<input id="customOpt" type="radio" oninput="uncheckInput(elemSelector('#nowOpt')); setOpt(this)"></input>
-					<p>Custom</p>
+					<p class="bottomBorder">Custom</p>
 					<div class="field"><label>date </label><input id="startDateCustom" type="date"></input></div>
 					<div class="field"><label>time </label><input id="startTimeCustom" type="time"></input></div>
 				</div>
@@ -38,7 +38,7 @@
 				<div class="field"><label>time </label><input id="endTime" type="time"></input></div>
 			</div>
 
-			<button class="button" id="submit" onclick="calcTimer">Submit</button>
+			<div class="center"><button class="button" id="submit" onclick="calcTimer">Submit</button></div>
 
 			<div id="result" style="display:none">
 				<h3>Time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
