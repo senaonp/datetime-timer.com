@@ -104,17 +104,21 @@ body {
 	padding-bottom: 20px;
 	border-bottom: 1px solid rgb(150,150,150);
 }
+.bottomSpacing {
+	margin-bottom: 20px;
+}
 #submit {
 	font-size: 1.1em;
 	padding: 5px 10px;
 }
-#customLink {
+#datetimeURL {
 	padding: 8px;
 	background-color: rgb(230,230,230);
 	border-radius: 5px;
 }
 #generatedURL {
 	margin: 30px 0;
+	line-height: 200%;
 }
 #generateURLelem {
 	margin-top: 50px;
@@ -150,7 +154,15 @@ body {
 #startDateTime input {
 	max-width: 80%;
 }
+#errors {
+	color: red;
+}
 
+#resultStart, #resultEnd {
+	padding: 2px;
+	background-color: rgb(200,200,200);
+	border-radius: 5px;
+}
 
 /* --------------------------------- */
 /* ------------ footer ------------- */
