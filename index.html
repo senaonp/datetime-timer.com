@@ -15,6 +15,7 @@
 		<div id="navbar"></div>
 		
 		<div id="content">
+			<h1 id="title">Timer for New Year's</h1>
 			<div id="startDateTime">
 				<h1>Start date-time</h1>
 				<div id="startNow">
@@ -36,11 +37,17 @@
 				<div class="field"><label>time </label><input id="endTime" type="time"></input></div>
 			</div>
 
-			<button id="submit" onclick="calcTimer">Submit</button>
+			<button class="button" id="submit" onclick="calcTimer">Submit</button>
 
 			<div id="result">
-				<h1>Time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h1>
+				<h3>Time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
 				<h1><span id="days">20</span>d - <span id="hours">16</span>:<span id="minutes">25</span>:<span id="seconds">10</span></h1>
+				<hr>
+				<div id="generateURLelem">
+					<div class="field"><label>(optional) name for custom URL </label><input id="URLname" type="text"></input></div>
+					<div class="field"><button class="button" id="getLink" onclick="getLink">generate a link for this timer</button></div>
+					<div id="generatedURL">Custom URL: <a id="customLink" href=".">https://datetime-timer.com?2021_04_05_12_30+custom_title</a></div>
+				</div>
 			</div>
 		</div>
 
