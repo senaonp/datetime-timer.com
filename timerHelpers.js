@@ -70,6 +70,10 @@ var dtDiffDisplay = function() {
 		elemSelector("#hours").innerText = dtDiffTime[0];
 		elemSelector("#minutes").innerText = dtDiffTime[1];
 		elemSelector("#seconds").innerText = dtDiffTime[2];
+		if (!nowStart) { // fix display due to rounding sometimes causing a one second diff
+			if (dtDiffTime[2] > 0) { elemSelector("#minutes").innerText = dtDiffTime[1]+1; }
+			elemSelector("#seconds").innerText = "00";
+		}
 	} else {
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";

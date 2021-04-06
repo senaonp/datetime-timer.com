@@ -129,7 +129,7 @@ body {
 	width: 70%;
 	height: auto;
 	margin: 30px 15%;
-	padding: 20px 0;
+	padding: 20px 15px;
 	border: 2px solid rgb(150,150,150);
 	border-radius: 10px;
 	box-sizing: border-box;
