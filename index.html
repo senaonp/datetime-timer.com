@@ -14,7 +14,35 @@
 	<body>
 		<div id="navbar"></div>
 		
-		<div id="content"></div>
+		<div id="content">
+			<div id="startDateTime">
+				<h1>Start date-time</h1>
+				<div id="startNow">
+					<input id="nowOpt" type="radio" checked=true></input>
+					<p>Now</p>
+					<p>2021/05/23 [12:30]</p>
+				</div>
+				<div id="startCustom">
+					<input id="customOpt" type="radio"></input>
+					<p>Custom</p>
+					<div class="field"><label>date </label><input id="startDateCustom" type="date"></input></div>
+					<div class="field"><label>time </label><input id="startTimeCustom" type="time"></input></div>
+				</div>
+			</div>
+
+			<div id="endDateTime">
+				<h1>End date-time</h1>
+				<div class="field"><label>date </label><input id="endDate" type="date"></input></div>
+				<div class="field"><label>time </label><input id="endTime" type="time"></input></div>
+			</div>
+
+			<button id="submit" onclick="calcTimer">Submit</button>
+
+			<div id="result">
+				<h1>Time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h1>
+				<h1><span id="days">20</span>d - <span id="hours">16</span>:<span id="minutes">25</span>:<span id="seconds">10</span></h1>
+			</div>
+		</div>
 
 		<div id="footer"></div>
 	</body>

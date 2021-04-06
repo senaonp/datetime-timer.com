@@ -18,6 +18,7 @@ body {
 	position: fixed;
 	background-color: rgb(200,200,200);
 	border-bottom: 2px solid rgba(50,50,50,0.7);
+	z-index: 10;
 }
 #navbar li {
 	width: 15%;
@@ -45,7 +46,6 @@ body {
 #navbar img {
 	max-width: 50%; 
 	height: 100%;
-	padding: 3px;
 	float: left;
 }
 
@@ -86,21 +86,44 @@ body {
 	margin-top: 50px;
 	padding-top: 10px;
 }
-.vPadding {
-    height: 15px;
-    background-color: rgb(20,20,20);
+.field {
+	display: block;
+	margin: 10px 0;
 }
-.eventText {
-	text-decoration: underline;
-	color: rgb(150,150,150);
-	cursor: pointer;
+#submit {
+	font-size: 1.1em;
+	width: 10%;
+	padding: 5px 0;
+	margin: 0 45%;
 }
 
-/* --------------------------------- */
-/* ------------ helpers ------------ */
-/* --------------------------------- */
-
-
+#startDateTime, #endDateTime, #result {
+	display: block;
+	width: 70%;
+	height: auto;
+	margin: 30px 15%;
+	padding: 20px 0;
+	border: 2px solid rgb(150,150,150);
+	border-radius: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+#startNow, #startCustom {
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+	max-height: 400px;
+	margin: 2%;
+	padding: 10px 0;
+	border: 1px solid rgb(150,150,150);
+	border-radius: 10px;
+	box-sizing: border-box;
+	text-align: center;
+}
+#nowOpt, #customOpt {
+	transform: scale(1.2);
+	margin: 10px 0;
+}
 
 /* --------------------------------- */
 /* ------------ footer ------------- */
