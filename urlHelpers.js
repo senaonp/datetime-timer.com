@@ -47,11 +47,18 @@ var URLworkflow = function() {
 	var urlQueryParsed = urlQuery.slice(1).split("-");
 	var start = urlQueryParsed[0];
 	var end = urlQueryParsed[1];
-	var name = (urlQueryParsed[2]) ? urlQueryParsed[2].replaceAll("_", " ") : null;
+	if (urlQueryParsed[2]) {
+		var name = decodeURIComponent(urlQueryParsed[2]);
+	} else {
+	 	var name = null;
+	}
 
 	// display banner
-	elemSelector("#title").innerText = name;
-	if (name) { elemSelector("#title").style.display = "block"; }
+	if (name) { 
+		console.log(name);
+		elemSelector("#title").innerText = name.replaceAll("_", " ");
+		elemSelector("#title").style.display = "block";
+	}
 
 	// fill out start date-time fields
 	if (start === "now") {
