@@ -1,6 +1,3 @@
-// variable states
-nowStart = true;
-
 // get day difference between now and a datetime
 var getDateTimeDiff = function(startDate, isNow) {
 	diff = date - d;
@@ -31,15 +28,26 @@ var getNow = function() {
 	var date = new Date();
 	return [date.getFullYear(), date.getMonth()+1, date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()];
 }
-now = getNow();
-elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
-elemSelector("#nowTime").innerText = "["+now[3]+":"+now[4]+"]";
+
+var displayNow = function(ts) {
+	var disp = [ts[0],ts[1]];
+	for(i=0; i<disp.length; i+=1) { if (disp[i] < 10) { disp[i] = "0"+disp[i]; } };
+	return disp;
+};
 
 // refresh timer
 var refresh = setInterval(function() {
 	// set nowtime
 	now = getNow();
+	nowTime = displayNow([now[3], now[4]]);
 	elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
-	elemSelector("#nowTime").innerText = "["+now[3]+":"+now[4]+"]";
+	elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
 	// update timer
 }, 500);
+
+// initialize form elems
+var nowStart = true;
+var now = getNow();
+var nowTime = displayNow([now[3], now[4]]);
+elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
+elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
