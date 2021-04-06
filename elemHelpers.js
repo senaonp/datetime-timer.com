@@ -28,3 +28,17 @@ var toggleBanner = function() {
 		elemSelector('#banner').style.display='inline-block'
 	}
 };
+
+// only check one at a time
+var uncheckInput = function(elem) {
+	elem.checked = false;
+};
+
+// set start option
+var setOpt = function(elem) {
+	if (elem.id === "nowOpt") {
+		nowStart = true;
+	} else {
+		nowStart = false;
+	}
+};

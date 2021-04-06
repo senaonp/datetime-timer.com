@@ -15,16 +15,17 @@
 		<div id="navbar"></div>
 		
 		<div id="content">
-			<h1 id="title">Timer for New Year's</h1>
+			<h1 id="title" style="display:none">Timer for New Year's</h1>
 			<div id="startDateTime">
 				<h1>Start date-time</h1>
 				<div id="startNow">
-					<input id="nowOpt" type="radio" checked=true></input>
+					<input id="nowOpt" type="radio" checked=true oninput="uncheckInput(elemSelector('#customOpt')); setOpt(this)"></input>
 					<p>Now</p>
-					<p>2021/05/23 [12:30]</p>
+					<p>date - <span id="nowDate"></span></p>
+					<p>time - <span id="nowTime"></span></p>
 				</div>
 				<div id="startCustom">
-					<input id="customOpt" type="radio"></input>
+					<input id="customOpt" type="radio" oninput="uncheckInput(elemSelector('#nowOpt')); setOpt(this)"></input>
 					<p>Custom</p>
 					<div class="field"><label>date </label><input id="startDateCustom" type="date"></input></div>
 					<div class="field"><label>time </label><input id="startTimeCustom" type="time"></input></div>
@@ -39,14 +40,14 @@
 
 			<button class="button" id="submit" onclick="calcTimer">Submit</button>
 
-			<div id="result">
+			<div id="result" style="display:none">
 				<h3>Time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
 				<h1><span id="days">20</span>d - <span id="hours">16</span>:<span id="minutes">25</span>:<span id="seconds">10</span></h1>
 				<hr>
 				<div id="generateURLelem">
 					<div class="field"><label>(optional) name for custom URL </label><input id="URLname" type="text"></input></div>
 					<div class="field"><button class="button" id="getLink" onclick="getLink">generate a link for this timer</button></div>
-					<div id="generatedURL">Custom URL: <a id="customLink" href=".">https://datetime-timer.com?2021_04_05_12_30+custom_title</a></div>
+					<div id="generatedURL">Custom URL: <a id="customLink" href=".">https://datetime-timer.com?2021_04_05_12_30+now+custom_title</a></div>
 				</div>
 			</div>
 		</div>
