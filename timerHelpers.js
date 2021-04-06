@@ -28,7 +28,7 @@ var evalOpt = function(bool) {
 	} else {
 		uncheckInput(elemSelector('#nowOpt')); 
 	};
-	elemSelector("#result").style.display = "none";
+	hideElem(elemSelector("#result"));
 }
 
 // get nowTime
@@ -50,11 +50,7 @@ var refresh = setInterval(function(ids) {
 	elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
 	elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
 	// update timer
-	if (nowStart) {
-		startDateTime = new Date();
-	} else {
-		startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
-	};
+	if (nowStart) { startDateTime = new Date(); }
 	dtDiffDisplay();
 }, 500);
 
@@ -71,9 +67,9 @@ var dtDiffDisplay = function() {
 		elemSelector("#minutes").innerText = dtDiffTime[1];
 		elemSelector("#seconds").innerText = dtDiffTime[2];
 		if (!nowStart) { // fix display due to rounding sometimes causing a one second diff
-			if (dtDiffTime[2] > 0) { elemSelector("#minutes").innerText = dtDiffTime[1]+1; }
+			if (dtDiffTime[2] >= 55) { elemSelector("#minutes").innerText = parseInt(dtDiffTime[1])+1; };
 			elemSelector("#seconds").innerText = "00";
-		}
+		};
 	} else {
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";
@@ -117,37 +113,35 @@ var submitTimer = function() {
 	isValid = validateFields();
 	if (isValid) {
 		elemSelector("#result").style.display = "block";
+		if (!nowStart) {
+			startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
+		};
 		endDateTime = new Date(elemSelector("#endDate").value+"T"+elemSelector("#endTime").value);
-		urlEndDatetime = endDateTime;
 		dateDiff = endDateTime - startDateTime;
 		dtDiffDisplay();
 		elemSelector("#resultStart").innerText = startDateTime;
 		elemSelector("#resultEnd").innerText = endDateTime;
 		elemSelector("#resultEndPassed").innerText = endDateTime;
+		generateURLquery();
 	} else {
 		return;
 	}
 };
 
-// generate URL
-var generateURL = function() {
-	elemSelector("#generatedURL").style.display = "block";
-	var url = "https://datetime-timer.com";
-
-	elemSelector("#datetimeURL").innerText = url;
-};
-
 // initialize form elems
 var msInDay = 1000*60*60*24;
 var msInHr = 1000*60*60;
+var url = "https://datetime-timer.com?";
 
 var startDateTime = null;
 var endDateTime = null;
 var dateDiff = null;
-var urlEndDatetime = null;
+var urlEndDateTime = null;
+var urlStartDateTime = null;
 var dtDiff = null;
 var dtDiffTime=[];
 var disp=[];
+var query=[];
 var nowStart = true;
 
 var now = getNow();
