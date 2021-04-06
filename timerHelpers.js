@@ -1,27 +1,41 @@
 // get day difference between now and a datetime
-var getDateTimeDiff = function(startDate, isNow) {
-	diff = date - d;
-	msInDay = 1000*60*60*24;
-	if (isNow) {
-		let d = Date.now();
+var getDateTimeDiff = function(startDate, endDate) {
+	diff = endDate - startDate;
+	if (nowStart) {
+		let d = new Date();
 	} else {
-		let d = getElemSelect("datetimeStart").value;
+		let d = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
 	}
 	return [
 		Math.floor(diff/msInDay),
-		diff/msInDay - Math.floor(diff/msInDay)
+		msToHMS(((diff/msInDay)-Math.floor(diff/msInDay))*msInDay)
 	];
 };
 
 // get time difference between now and a datetime
 var msToHMS = function(time) {
-	msInHr = 1000*60*60*24;
 	timerH = Math.floor(time/msInHr);
 	timerM = Math.floor((time/msInHr - timerH)*60);
 	timerS = Math.floor((((time/msInHr-timerH)*60)-timerM)*60);
 	return [timerH, timerM, timerS];
 };
 
+// evaluate start date-time options
+var evalOpt = function(bool) {
+	if (bool) {
+		uncheckInput(elemSelector('#customOpt')); 
+		setNowStart(true);
+	} else {
+		uncheckInput(elemSelector('#nowOpt')); 
+		setNowStart(false);
+	};
+	elemSelector("#result").style.display = "none";
+}
+
+// set nowStart
+var setNowStart = function(bool) {
+	nowStart = bool;
+}
 
 // get nowTime
 var getNow = function() {
@@ -42,28 +56,34 @@ var refresh = setInterval(function() {
 	elemSelector("#nowDate").innerText = now[0]+"/"+now[1]+"/"+now[2];
 	elemSelector("#nowTime").innerText = "["+nowTime[0]+":"+nowTime[1]+"]";
 	// update timer
-	if (nowStart) { startDateTime = new Date(); }
-	else { startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value); };
+	if (nowStart) {
+		startDateTime = new Date();
+	} else {
+		startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
+	};
+	dtDiffDisplay();
 }, 500);
+
+// display datetime difference
+var dtDiffDisplay = function() {
+	dtDiff = getDateTimeDiff(startDateTime, endDateTime);
+	if (dtDiff[0] >= 0) {
+		elemSelector("#timerPassed").style.display = "none";
+		elemSelector("#timer").style.display = "block";
+		elemSelector("#resultStart").innerText = startDateTime;
+		elemSelector("#days").innerText = dtDiff[0];
+		elemSelector("#hours").innerText = dtDiff[1][0];
+		elemSelector("#minutes").innerText = dtDiff[1][1];
+		elemSelector("#seconds").innerText = dtDiff[1][2];
+	} else {
+		elemSelector("#timerPassed").style.display = "block";
+		elemSelector("#timer").style.display = "none";
+	}
+};
 
 // returns Datetime of inputfields
 var parseDatetime = function(date, time) {
 	return new Date(date.value, time.value);
-};
-
-// submit form
-var submitTimer = function() {
-	isValid = validateFields();
-	if (isValid) {
-		elemSelector("#result").style.display = "block";
-		endDateTime = new Date(elemSelector("#endDate").value+"T"+elemSelector("#endTime").value);
-		urlEndDatetime = endDateTime;
-		dateDiff = endDateTime - startDateTime;
-		elemSelector("#resultStart").innerText = startDateTime;
-		elemSelector("#resultEnd").innerText = endDateTime;
-	} else {
-		return;
-	}
 };
 
 // set defaultFieldValues
@@ -76,11 +96,6 @@ var setDefaultValues = function() {
 // validate fields
 var validateFields = function() {
 	var errors = [];
-	console.log(elemSelector("#startDateCustom").value);
-	console.log(elemSelector("#startTimeCustom").value);
-	console.log(elemSelector("#endDate").value);
-	console.log(elemSelector("#endTime").value);
-
 	if (!nowStart) {
 		if (elemSelector("#startDateCustom").value == "") { errors.push(" error [custom start date is not valid] "); };
 		if (elemSelector("#startTimeCustom").value == "") { errors.push(" error [custom start time is not valid] "); };
@@ -98,6 +113,23 @@ var validateFields = function() {
 	};
 };
 
+// submit form
+var submitTimer = function() {
+	isValid = validateFields();
+	if (isValid) {
+		elemSelector("#result").style.display = "block";
+		endDateTime = new Date(elemSelector("#endDate").value+"T"+elemSelector("#endTime").value);
+		urlEndDatetime = endDateTime;
+		dateDiff = endDateTime - startDateTime;
+		dtDiffDisplay();
+		elemSelector("#resultStart").innerText = startDateTime;
+		elemSelector("#resultEnd").innerText = endDateTime;
+		elemSelector("#resultEndPassed").innerText = endDateTime;
+	} else {
+		return;
+	}
+};
+
 // generate URL
 var generateURL = function() {
 	elemSelector("#generatedURL").style.display = "block";
@@ -107,10 +139,14 @@ var generateURL = function() {
 };
 
 // initialize form elems
+var msInDay = 1000*60*60*24;
+var msInHr = 1000*60*60;
+
 var startDateTime = null;
 var endDateTime = null;
 var dateDiff = null;
 var urlEndDatetime = null;
+var dtDiff = null;
 var nowStart = true;
 
 var now = getNow();

@@ -19,14 +19,14 @@
 			<div id="startDateTime">
 				<h1>Start date-time</h1>
 				<div id="startNow">
-					<input id="nowOpt" type="radio" checked=true oninput="uncheckInput(elemSelector('#customOpt')); setOpt(this)"></input>
+					<input id="nowOpt" type="radio" checked=true oninput="evalOpt(true)"></input>
 					<p class="bottomBorder">Now</p>
 					<small>counts down from the current time to the end date-time</small>
 					<p>date - <span id="nowDate"></span></p>
 					<p>time - <span id="nowTime"></span></p>
 				</div>
 				<div id="startCustom">
-					<input id="customOpt" type="radio" oninput="uncheckInput(elemSelector('#nowOpt')); setOpt(this)"></input>
+					<input id="customOpt" type="radio" oninput="evalOpt(false)"></input>
 					<p class="bottomBorder">Custom</p>
 					<small>this option provides the difference between two specified datetime points</small>
 					<div class="field"><label>date </label><input id="startDateCustom" type="date"></input></div>
@@ -44,8 +44,13 @@
 			<div class="center"><button class="button" id="submit" onclick="submitTimer()">Submit</button></div>
 
 			<div id="result" style="display:none">
-				<h3>Time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
-				<h1><span id="days">20</span>d - <span id="hours">16</span>:<span id="minutes">25</span>:<span id="seconds">10</span></h1>
+				<div id="timerPassed">
+					<h1>the datetime <span id="resultEndPassed">{{endDatetime}}</span> has passed</h1>
+				</div>
+				<div id="timer">
+					<h1 id="timerFull"><span id="days">{{days}}</span>d - [<span id="hours">{{h}}</span>:<span id="minutes">{{minutes}}</span>:<span id="seconds">{{seconds}}</span>]</h1>
+					<h3 id="resultDesc">time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
+				</div>
 				<hr>
 				<div id="generateURLelem">
 					<div class="field bottomSpacing"><small>you can also generate a link for this timer using the button below</small></div>

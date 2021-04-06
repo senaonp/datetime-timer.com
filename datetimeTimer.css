@@ -158,10 +158,16 @@ body {
 	color: red;
 }
 
-#resultStart, #resultEnd {
+#resultStart, #resultEnd, #resultEndPassed {
 	padding: 2px;
 	background-color: rgb(200,200,200);
 	border-radius: 5px;
+}
+#resultDesc {
+	margin-top: 50px;
+}
+#timerFull {
+	font-size: 2.5em;
 }
 
 /* --------------------------------- */
