@@ -35,7 +35,11 @@ var getNow = function() {
 // add leading zero if number is single-digit
 var displayTime = function(ts) {
 	disp = [ts[0],ts[1],ts[2]];
-	for(i=0; i<disp.length; i+=1) { if (disp[i] < 10) { disp[i] = "0"+disp[i]; } };
+	for(i=0; i<disp.length; i+=1) {
+		if ((disp[i]).toString().length == 2) { continue; }
+		if (disp[i] < 10) { disp[i] = "0"+disp[i]; }
+		else { disp[i] = disp[i].toString(); }
+	};
 	return disp;
 };
 
@@ -69,18 +73,23 @@ var dtDiffDisplay = function() {
 
 // estimate difference between custom dates
 var roundCustom = function(dtDiff, dtDiffTime) {
-	if (dtDiffTime[2] >= 59) {
-		elemSelector("#minutes").innerText = parseInt(dtDiffTime[1])+1;
-		elemSelector("#seconds").innerText = "00";
+	dHMS = [dtDiff[0], dtDiffTime[0], dtDiffTime[1], dtDiffTime[2]];
+	if (dHMS[3] >= 59) {
+		dHMS[2] = parseInt(dtDiffTime[1])+1;
+		dHMS[3] = 0;
 	}
-	if ( dtDiffTime[1] == 60) {
-		elemSelector("#hours").innerText = parseInt(dtDiffTime[0])+1;
-		elemSelector("#minutes").innerText = "00";
+	if (dHMS[2] == 60) {
+		dHMS[1] = parseInt(dtDiffTime[0])+1;
+		dHMS[2] = 0;
 	}
-	if ( dtDiffTime[0] == 24) {
-		elemSelector("#days").innerText = parseInt(dtDiff[0])+1;
-		elemSelector("#hours").innerText = "00";
+	if (dHMS[1] == 24) {
+		dHMS[0] = parseInt(dtDiff[0])+1;
+		dHMS[1] = 0;
 	}
+	hms = displayTime(dHMS.slice(1));
+	timerText = dHMS[0] + "d - [" + hms[0] + ":" + hms[1] + ":"+ hms[2] + "]";
+	elemSelector("#timerFull").innerText = timerText;
+	elemSelector("#timerFullTitle").innerText = timerText;
 };
 
 // returns Datetime of inputfields
@@ -154,6 +163,8 @@ var timerS = null;
 var dtDiffTime=[];
 var disp=[];
 var query=[];
+var hms=[];
+var dHMS=[];
 var timerText = "";
 
 var now = getNow();
