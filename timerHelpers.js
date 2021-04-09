@@ -57,10 +57,9 @@ var dtDiffDisplay = function() {
 		elemSelector("#timerPassed").style.display = "none";
 		elemSelector("#timer").style.display = "block";
 		elemSelector("#resultStart").innerText = startDateTime;
-		elemSelector("#days").innerText = dtDiff[0];
-		elemSelector("#hours").innerText = dtDiffTime[0];
-		elemSelector("#minutes").innerText = dtDiffTime[1];
-		elemSelector("#seconds").innerText = dtDiffTime[2];
+		timerText = dtDiff[0] + "d - [" + dtDiffTime[0] + ":" + dtDiffTime[1] + ":"+ dtDiffTime[2] + "]";
+		elemSelector("#timerFull").innerText = timerText;
+		elemSelector("#timerFullTitle").innerText = timerText;
 		if (!nowStart) { roundCustom(dtDiff, dtDiffTime); return; };
 	} else {
 		elemSelector("#timerPassed").style.display = "block";
@@ -120,6 +119,7 @@ var validateFields = function() {
 var submitTimer = function() {
 	isValid = validateFields();
 	if (isValid) {
+		if (isTitleDisplay) { elemSelector("#title").style.display = "none"; }
 		elemSelector("#result").style.display = "block";
 		if (!nowStart) {
 			startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
@@ -154,6 +154,7 @@ var timerS = null;
 var dtDiffTime=[];
 var disp=[];
 var query=[];
+var timerText = "";
 
 var now = getNow();
 var nowTime = displayTime([now[3], now[4], now[5]]);

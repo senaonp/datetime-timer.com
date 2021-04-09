@@ -3,6 +3,7 @@ var urlname = null;
 var fullUrl = null;
 var isNameValid = null;
 var urlNameField = null;
+var isTitleDisplay = false;
 
 // generate URL query
 var generateURLquery = function() {
@@ -80,8 +81,8 @@ var URLworkflow = function() {
 
 	// display banner
 	if (name) { 
-		console.log(name);
-		elemSelector("#title").innerText = name.replaceAll("_", " ");
+		elemSelector("#title").innerHTML = name.replaceAll("_", " ") +
+		"<br><br><span id='timerFullTitle'>{{time}}</span>";
 		elemSelector("#title").style.display = "block";
 	}
 
@@ -105,6 +106,7 @@ var URLworkflow = function() {
 
 	// submit the form
 	elemSelector("#submit").click();
+	isTitleDisplay = true;
 };
 
 // do URL workflow if there is a query

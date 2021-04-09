@@ -15,7 +15,9 @@
 		<div id="navbar"></div>
 
 		<div id="content">
-			<h1 id="title" style="display:none">Timer for New Year's</h1>
+			<h1 id="title" style="display:none">Timer for New Year's<br>
+				<span id="timerFullTitle">{{time}}</span>
+			</h1>
 			<div id="startDateTime">
 				<h1>Start date-time</h1>
 				<div id="startNow">
@@ -41,14 +43,14 @@
 			</div>
 
 			<div class="center"><p id="errors" style="display:none"></p></div>
-			<div class="center"><button class="button" id="submit" onclick="submitTimer()">Submit</button></div>
+			<div class="center"><button class="button" id="submit" onclick="submitTimer();">Submit</button></div>
 
 			<div id="result" style="display:none">
 				<div id="timerPassed">
 					<h1>the datetime <span id="resultEndPassed">{{endDatetime}}</span> has passed</h1>
 				</div>
 				<div id="timer">
-					<h1 id="timerFull"><span id="days">{{days}}</span>d - [<span id="hours">{{hours}}</span>:<span id="minutes">{{minutes}}</span>:<span id="seconds">{{seconds}}</span>]</h1>
+					<h1 id="timerFull">{{days}}d - [{{hours}}:{{minutes}}:{{seconds}}]</h1>
 					<h3 id="resultDesc">time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
 				</div>
 				<hr>
