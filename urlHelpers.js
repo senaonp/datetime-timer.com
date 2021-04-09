@@ -1,3 +1,6 @@
+// initialize vars
+var urlname = null;
+
 // generate URL query
 var generateURLquery = function() {
 	elemSelector("#generatedURL").style.display = "none";
@@ -15,9 +18,10 @@ var generateURLquery = function() {
 var generateURL = function() {
 	elemSelector("#generatedURL").style.display = "block";
 	if (elemSelector("#URLname").value.trim() != "") {
-		var name = elemSelector("#URLname").value;
-        name = name.replaceAll(" ", "_");
-        query.push(name);
+		query = query.slice(0,2);
+		urlname = elemSelector("#URLname").value;
+        urlname = urlname.replaceAll(" ", "_");
+        query.push(urlname);
 	}
     var fullUrl = url+query.join("-");
 	elemSelector("#datetimeURL").innerText = fullUrl;
