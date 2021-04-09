@@ -157,7 +157,7 @@ body {
 #startDateTime input {
 	max-width: 80%;
 }
-#errors {
+#errors, #urlnameError {
 	color: red;
 }
 

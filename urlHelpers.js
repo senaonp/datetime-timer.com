@@ -1,6 +1,8 @@
 // initialize vars
 var urlname = null;
 var fullUrl = null;
+var isNameValid = null;
+var urlNameField = null;
 
 // generate URL query
 var generateURLquery = function() {
@@ -15,17 +17,36 @@ var generateURLquery = function() {
 	return query;
 }
 
+var validateURLname = function() {
+	if (urlNameField.search(/[-_]/) != -1) { 
+		elemSelector("#urlnameError").style.display = "block";
+		elemSelector("#generatedURL").style.display = "none";
+		elemSelector("#urlnameError").innerText = "error: the URL name cannot contain either dash '-' \
+		and/or underscore '_' characters due to how the URLs are parsed; please specify a name that does not \
+		include these characters and try again";
+		return false;
+	};
+	elemSelector("#urlnameError").style.display = "none";
+	return true;
+};
+
 // generate URL
 var generateURL = function() {
-	elemSelector("#generatedURL").style.display = "block";
 	query = query.slice(0,2);
-	if (elemSelector("#URLname").value.trim() != "") {
-		urlname = elemSelector("#URLname").value.replaceAll(" ", "_");
-        query.push(urlname);
-	}
+	urlNameField = elemSelector("#URLname").value.trim();
+	if (urlNameField != "") {
+		isNameValid = validateURLname();
+		if (isNameValid) {
+			urlname = urlNameField.replaceAll(" ", "_");
+        	query.push(urlname);
+		} else {
+			return false;
+		};
+	};
     fullUrl = url+query.join("-");
 	elemSelector("#datetimeURL").innerText = fullUrl;
     elemSelector("#datetimeURL").href = fullUrl;
+	elemSelector("#generatedURL").style.display = "block";
 };
 
 // parse datetime to query form
