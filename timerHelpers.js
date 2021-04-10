@@ -24,6 +24,7 @@ var evalOpt = function(bool) {
 		uncheckInput(elemSelector('#nowOpt')); 
 	};
 	hideElem(elemSelector("#result"));
+	hideElem(elemSelector("#title"));
 }
 
 // get nowTime
@@ -128,7 +129,7 @@ var validateFields = function() {
 var submitTimer = function() {
 	isValid = validateFields();
 	if (isValid) {
-		if (isTitleDisplay) { elemSelector("#title").style.display = "none"; }
+		if (isTitleDisplay) { hideElem(elemSelector("#title")); }
 		elemSelector("#result").style.display = "block";
 		if (!nowStart) {
 			startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);

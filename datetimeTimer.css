@@ -76,16 +76,15 @@ body {
 /* ------------ content ------------ */
 
 #content {
-	margin-top: 60px;
+	margin-top: 56px;
 	width: 100%;
-	padding-top: 10px;
 }
 #title {
 	text-align: center;
 	margin: 0;
 	background-color: rgb(50,50,50);
 	color: rgb(250,250,250);
-	padding: 20px 0;
+	padding: 40px 0;
 }
 .field {
 	display: block;
