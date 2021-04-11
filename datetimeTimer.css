@@ -79,9 +79,11 @@ body {
 	margin-top: 56px;
 	width: 100%;
 }
+#titleDiv {
+	padding-bottom: 20px;
+}
 #title {
 	text-align: center;
-	margin: 0;
 	background-color: rgb(50,50,50);
 	color: rgb(250,250,250);
 	padding: 40px 0;
@@ -121,9 +123,7 @@ body {
 }
 
 #startDateTime, #endDateTime, #result {
-	display: block;
 	width: 70%;
-	height: auto;
 	margin: 20px 15%;
 	padding: 10px 15px;
 	border: 2px solid rgb(150,150,150);
