@@ -79,13 +79,6 @@ var URLworkflow = function() {
 	 	var name = null;
 	}
 
-	// display banner
-	if (name) { 
-		elemSelector("#title").innerHTML = name.replaceAll("_", " ") +
-		"<br><br><span id='timerFullTitle'>{{time}}</span>";
-		elemSelector("#title").style.display = "block";
-	}
-
 	// fill out start date-time fields
 	if (start === "now") {
 		startDateTime = new Date();
@@ -96,6 +89,13 @@ var URLworkflow = function() {
 		elemSelector('#customOpt').click();
 		elemSelector('#startDateCustom').value = startPts[0]+"-"+startPts[1]+"-"+startPts[2];
 		elemSelector('#startTimeCustom').value = startPts[3]+":"+startPts[4];
+	}
+
+	// display banner
+	if (name) {
+		elemSelector("#title").innerHTML = name.replaceAll("_", " ") +
+		"<br><br><span id='timerFullTitle'>{{time}}</span>";
+		elemSelector("#title").style.display = "block";
 	}
 
 	// fill out end date-time fields
