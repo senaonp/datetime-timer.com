@@ -67,6 +67,7 @@ var dtDiffDisplay = function() {
 		elemSelector("#timerFullTitle").innerText = timerText;
 		if (!nowStart) { roundCustom(dtDiff, dtDiffTime); return; };
 	} else {
+		elemSelector("#timerFullTitle").innerHTML = "timer has passed - " + endDateTime;
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";
 	}
@@ -151,6 +152,7 @@ var msInDay = 1000*60*60*24;
 var msInHr = 1000*60*60;
 var url = "https://datetime-timer.com?";
 var nowStart = true;
+var timerCompleted = false;
 
 var startDateTime = null;
 var endDateTime = null;
