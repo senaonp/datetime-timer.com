@@ -1,7 +1,7 @@
 elemSelector("#navbar").innerHTML = `
     <img src="assets/logo.png" />
     <ul>
-        <li onclick="confirmEvent(navi, 'this tab will redirect to the datetime-timer GitHub repository; continue to (https://github.com/Tofuni/datetime-timer.com)?', 'https://github.com/Tofuni/datetime-timer.com')">GitHub Repo</li>
+        <li onclick="navi('https://github.com/Tofuni/datetime-timer.com')"><a href="https://github.com/Tofuni/datetime-timer.com">Github Repo</a></li>
         <li onclick="toggleBanner()">About</li>
     </ul>
     <div id="banner" style="display:none">
