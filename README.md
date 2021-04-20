@@ -21,5 +21,6 @@ applet can be run in a web browser by checking out the repo and opening `index.h
 <img src="./assets/datetime-timer-custom-preview.png" height="auto">
 
 ## Generated URL with name preview:
-url: <a href='https://datetime-timer.com/?now-2022_01_01_00_00-new_year%27s_2022'>https://datetime-timer.com/?now-2022_01_01_00_00-new_year%27s_2022</a>
+- url: <a target='_blank' href='https://datetime-timer.com/?now-2022_01_01_00_00-new_year%27s_2022'>https://datetime-timer.com/?now-2022_01_01_00_00-new_year%27s_2022</a>
+
 <img src="./assets/datetime-timer-url-name.png" height="auto">
