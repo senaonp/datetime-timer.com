@@ -1,7 +1,7 @@
 elemSelector("#navbar").innerHTML = `
     <img src="assets/logo.png" />
     <ul>
-        <li onclick="navi('https://github.com/Tofuni/datetime-timer.com')"><a href="https://github.com/Tofuni/datetime-timer.com">Github Repo</a></li>
+        <li onclick="navi('https://github.com/senaonp/datetime-timer.com')"><a href="https://github.com/senaonp/datetime-timer.com">Github Repo</a></li>
         <li onclick="toggleBanner()">About</li>
     </ul>
     <div id="banner" style="display:none">
@@ -11,7 +11,7 @@ elemSelector("#navbar").innerHTML = `
 
 elemSelector("#datetimeTimerDescription").innerHTML = `
     datetime-timer is a development side project i'm currently working on during free time. any updates to the website will be added to the Github repository<br>
-    please feel free to send any feedback to <a href="mailto:tofuni.dev@gmail.com">(tofuni.dev@gmail.com)</a> and let me know if the applet has been useful, thanks!
+    please feel free to send any feedback to <a href="mailto:senaonp.dev@gmail.com">(senaonp.dev@gmail.com)</a> and let me know if the applet has been useful, thanks!
     <br><br>`;
 
 elemSelector("#content").innerHTML = `
@@ -63,8 +63,8 @@ elemSelector("#content").innerHTML = `
     </div>`;
 
 elemSelector("#footer").innerHTML = `
-    <span>developed by Tofuni</span>
+    <span>developed by senaonp</span>
     <br><br>
-    <span>datetime-timer source code is available on <a target="_blank" href="https://github.com/Tofuni/datetime-timer.com">GitHub</a> (･‿･✿)</span>
+    <span>datetime-timer source code is available on <a target="_blank" href="https://github.com/senaonp/datetime-timer.com">GitHub</a> (･‿･✿)</span>
     <br><br>
-    <span>email: <a href="mailto:tofuni.dev@gmail.com">(tofuni.dev@gmail.com)</a></span>`;
+    <span>email: <a href="mailto:senaonp.dev@gmail.com">(senaonp.dev@gmail.com)</a></span>`;
