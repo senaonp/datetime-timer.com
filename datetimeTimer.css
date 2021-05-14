@@ -47,6 +47,14 @@ body {
 	height: 100%;
 	float: left;
 }
+.feature {
+	display: block;
+	margin: 10px 0;
+	padding-left: 30px;
+	margin-left: 10px;
+	color: silver;
+	border-left: 3px solid silver;
+}
 
 /* ------------ banner ------------ */
 
@@ -54,12 +62,12 @@ body {
 	background-color: rgba(10,10,10,0.9);
 	display: inline-block;
 	position: relative;
-	margin-bottom: 30px;
+	padding: 30px 0;
 	border-top: 4px solid rgba(100,100,100,0.5);
 	width: 100%;
 }
 #banner p {
-	margin-left: 70px;
+	margin: 15px 100px;
 	color: white;
 }
 #banner button {
@@ -72,6 +80,7 @@ body {
 }
 #banner a {
 	color: springgreen;
+	text-decoration: underline;
 }
 
 /* ------------ content ------------ */

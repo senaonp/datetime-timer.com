@@ -10,8 +10,14 @@ elemSelector("#navbar").innerHTML = `
     </div>`;
 
 elemSelector("#datetimeTimerDescription").innerHTML = `
-    datetime-timer is a development side project i'm currently working on during free time. any updates to the website will be added to the Github repository<br>
-    please feel free to send any feedback to <a href="mailto:senaonp.dev@gmail.com">(senaonp.dev@gmail.com)</a> and let me know if the applet has been useful, thanks!
+    datetime timer is a development side project i'm currently working on during free time; any updates to the website will be added to the Github repository.<br>a video demonstration of using the website is also available <a target='_blank' href='https://fbacarisas.xyz/video/#datetime_timer'>(here)</a>
+	<br><hr><br>the current features of datetime timer are<br>
+	<span class="feature">display days, hours, minutes, and seconds from current time to specified end datetime</span>
+	<span class="feature">display time information between two specified datetimes</span>
+	<span class="feature">generate URL for saving and/or sharing results</span>
+	<span class="feature">responsive styling for mobile devices</span>
+	<br><br>
+	please feel free to send any feedback to <a href="mailto:senaonp.dev@gmail.com">(senaonp.dev@gmail.com)</a> and let me know if the applet has been useful, thanks!
     <br><br>`;
 
 elemSelector("#content").innerHTML = `
