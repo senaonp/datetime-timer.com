@@ -16,9 +16,9 @@ elemSelector("#datetimeTimerDescription").innerHTML = `
 	<span class="feature">display time information between two specified datetimes</span>
 	<span class="feature">generate URL for saving and/or sharing results</span>
 	<span class="feature">responsive styling for mobile devices</span>
-	<br><br>
-	please feel free to send any feedback to <a href="mailto:senaonp.dev@gmail.com">(senaonp.dev@gmail.com)</a> and let me know if the applet has been useful, thanks!
-    <br><br>`;
+	<br>
+	my other programming projects can also be viewed here: (<a target="_blank" href="https://fbacarisas.xyz/video/#programming_playlist">fbacarisas.xyz/video/#programming_playlist</a>)
+	<br><br>`;
 
 elemSelector("#content").innerHTML = `
     <div id="titleDiv"><h1 id="title" style="display:none">{{URL title}}<br><span id="timerFullTitle">{{time}}</span></h1></div>
