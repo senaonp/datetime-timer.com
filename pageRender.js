@@ -73,4 +73,4 @@ elemSelector("#footer").innerHTML = `
     <br><br>
     <span>datetime-timer source code is available on <a target="_blank" href="https://github.com/senaonp/datetime-timer.com">GitHub</a> (･‿･✿)</span>
     <br><br>
-    <span>email: <a href="mailto:senaonp.dev@gmail.com">(senaonp.dev@gmail.com)</a></span>`;
+    <span>email: <a href="mailto:dev@greentea.moe">(dev@greentea.moe)</a></span>`;
