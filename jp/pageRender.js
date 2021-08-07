@@ -79,4 +79,4 @@ elemSelector("#footer").innerHTML = `
     <br><br>
     <span><a target="_blank" href="https://github.com/senaonp/datetime-timer.com">GitHub</a>では「日時タイマー」のソースコードがあります (･‿･✿)</span>
     <br><br>
-    <span>電子メール： <a href="mailto:dev@greentea.moe">(dev@greentea.moe)</a></span>`;
+    <span>電子メール： <a href="mailto:dev@greentea.moe">dev@greentea.moe</a></span>`;

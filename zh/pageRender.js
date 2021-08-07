@@ -79,4 +79,4 @@ elemSelector("#footer").innerHTML = `
     <br><br>
     <span>datetime-timer【日期时间的计时器】源代码在<a target="_blank" href="https://github.com/senaonp/datetime-timer.com">GitHub</a> (･‿･✿)</span>
     <br><br>
-    <span>电子邮件：（<a href="mailto:dev@greentea.moe">dev@greentea.moe</a>）</span>`;
+    <span>电子邮件： <a href="mailto:dev@greentea.moe">dev@greentea.moe</a></span>`;
