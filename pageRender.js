@@ -25,7 +25,8 @@ elemSelector("#content").innerHTML = `
 	
 	<div id="langElem">
 		<a class="lang" href="./">en</a> | 
-		<a class="lang" href="./zh/">中文</a>
+		<a class="lang" href="./zh/">中文</a> | 
+		<a class="lang" href="./jp/">日本語</a>
 	</div>
 
     <div id="startDateTime">

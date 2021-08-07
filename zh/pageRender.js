@@ -25,7 +25,8 @@ elemSelector("#content").innerHTML = `
 	
 	<div id="langElem">
 		<a class="lang" href="./../">en</a> | 
-		<a class="lang" href="./zh/">中文</a>
+		<a class="lang" href="./">中文</a> | 
+		<a class="lang" href="./../jp/">日本語</a>
 	</div>
 
     <div id="startDateTime">
@@ -69,7 +70,7 @@ elemSelector("#content").innerHTML = `
             <div class="field"><label>网址的名（可选的）</label> <input id="URLname" type="text"></input><br><small>注意：名不能有连字符字 “-” 还是划线字 “_” </small></div>
             <div class="center"><p id="urlnameError" style="display:none"></p></div>
             <div class="field"><button class="button" id="getLink" onclick="generateURL()">生成网址</button></div>
-            <div id="generatedURL" style="display:none">【日期时间的计时器】网址: <a id="datetimeURL" target="_blank">https://datetime-timer.com?{{start}}-{{end}}-{{url_title}}</a></div>
+            <div id="generatedURL" style="display:none">【日期时间的计时器】网址: <a id="datetimeURL" target="_blank">https://datetime-timer.com/zh/?{{start}}-{{end}}-{{url_title}}</a></div>
         </div>
     </div>`;
 
