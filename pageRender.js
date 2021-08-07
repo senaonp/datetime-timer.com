@@ -22,6 +22,11 @@ elemSelector("#datetimeTimerDescription").innerHTML = `
 
 elemSelector("#content").innerHTML = `
     <div id="titleDiv"><h1 id="title" style="display:none">{{URL title}}<br><span id="timerFullTitle">{{time}}</span></h1></div>
+	
+	<div id="langElem">
+		<a class="lang" href="./">en</a> | 
+		<a class="lang" href="./zh/">中文</a>
+	</div>
 
     <div id="startDateTime">
         <h1>Start date-time</h1>
