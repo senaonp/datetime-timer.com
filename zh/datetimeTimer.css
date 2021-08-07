@@ -88,7 +88,7 @@ body {
 #langElem {
 	display: block;
 	text-align: right;
-	margin: 0px 20px 20px 0px;
+	margin: 0px 20px 10px 0px;
 }
 .lang {
 	background-color: rgb(100,100,100);
@@ -163,7 +163,7 @@ body {
 	display: inline-block;
 	vertical-align: top;
 	width: 45%;
-	margin: 2%;
+	margin: 10px 2%;
 	padding: 10px 15px;
 	border: 1px solid rgb(150,150,150);
 	border-radius: 10px;

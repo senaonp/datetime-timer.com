@@ -33,14 +33,14 @@ elemSelector("#content").innerHTML = `
         <div id="startNow">
             <input id="nowOpt" type="radio" checked=true oninput="evalOpt(true)"></input>
             <p class="bottomBorder">Now</p>
-            <small>counts down from the current time to the end date-time</small>
+            <small>counts down from now to the end date-time</small>
             <p>date - <span id="nowDate"></span></p>
             <p>time - <span id="nowTime"></span></p>
         </div>
         <div id="startCustom">
             <input id="customOpt" type="radio" oninput="evalOpt(false)"></input>
             <p class="bottomBorder">Custom</p>
-            <small>gets the difference between two specified date-times</small>
+            <small>gets the difference between two date-times</small>
             <div class="field"><label>date </label><input id="startDateCustom" type="date"></input></div>
             <div class="field"><label>time </label><input id="startTimeCustom" type="time"></input></div>
         </div>

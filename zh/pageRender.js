@@ -12,12 +12,12 @@ elemSelector("#navbar").innerHTML = `
 elemSelector("#datetimeTimerDescription").innerHTML = `
     我空闲时间里从事于这个网站；都更新在Github存储库<br>使用网站的视频示可以在<a target='_blank' href='https://fbacarisas.xyz/video/#datetime_timer'>这里</a>看
 	<br><hr><br>datetime-timer【日期时间的计时器】的特征是<br>
-	<span class="feature">展示日，小时，分钟，和秒的时间从现在到指定结束日期时间。</span>
-	<span class="feature">展示开始日期时间和结束日期时间的差额</span>
+	<span class="feature">展示日，小时，分钟，和秒的现在和结束日期之间的时间。</span>
+	<span class="feature">计算两个日期时间之间的差值</span>
 	<span class="feature">为了保存还是分享，你能生成网址</span>
 	<span class="feature">响应式设计</span>
 	<br>
-	我的 其他编程项目在<a target="_blank" href="https://fbacarisas.xyz/video/#programming_playlist">这里</a>
+	我的其他编程项目在<a target="_blank" href="https://fbacarisas.xyz/video/#programming_playlist">这里</a>
 	<br><br>`;
 
 elemSelector("#content").innerHTML = `
@@ -33,14 +33,14 @@ elemSelector("#content").innerHTML = `
         <div id="startNow">
             <input id="nowOpt" type="radio" checked=true oninput="evalOpt(true)"></input>
             <p class="bottomBorder">现在</p>
-            <small>倒数从现在到指定的结束日期时间</small>
+            <small>倒数现在和结束日期之间的时间</small>
             <p>日期 - <span id="nowDate"></span></p>
             <p>时间 - <span id="nowTime"></span></p>
         </div>
         <div id="startCustom">
             <input id="customOpt" type="radio" oninput="evalOpt(false)"></input>
             <p class="bottomBorder">自定</p>
-            <small>展示开始日期时间和结束日期时间的差额</small>
+            <small>计算两个日期时间之间的差值</small>
             <div class="field"><label>日期 </label><input id="startDateCustom" type="date"></input></div>
             <div class="field"><label>时间 </label><input id="startTimeCustom" type="time"></input></div>
         </div>
