@@ -17,7 +17,7 @@ elemSelector("#datetimeTimerDescription").innerHTML = `
 	<span class="feature">「日時タイマー」URLを生成できます</span>
 	<span class="feature">レスポンシブスタイリング</span>
 	<br>
-	私の他のプロジェクトが<a target="_blank" href="https://fbacarisas.xyz/video/#programming_playlist">かちら</a>で見られます
+	私の他のプロジェクトが<a target="_blank" href="https://fbacarisas.xyz/video/#programming_playlist">こちら</a>で見られます
 	<br><br>`;
 
 elemSelector("#content").innerHTML = `
@@ -77,6 +77,6 @@ elemSelector("#content").innerHTML = `
 elemSelector("#footer").innerHTML = `
     <span>senaonpが作りました</span>
     <br><br>
-    <span><a target="_blank" href="https://github.com/senaonp/datetime-timer.com">GitHub</a>では「日時タイマー」のソースコードがあります (･‿･✿)</span>
+    <span><a target="_blank" href="https://github.com/senaonp/datetime-timer.com">GitHub</a>に「日時タイマー」のソースコードがあります (･‿･✿)</span>
     <br><br>
     <span>電子メール： <a href="mailto:dev@greentea.moe">dev@greentea.moe</a></span>`;

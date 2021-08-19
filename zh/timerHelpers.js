@@ -113,8 +113,8 @@ var validateFields = function() {
 		if (elemSelector("#startDateCustom").value == "") { errors.push(" 错误 [自定的开始日期无效] "); };
 		if (elemSelector("#startTimeCustom").value == "") { errors.push(" 错误 [自定的开始时间无效] "); };
 	}
-	if (elemSelector("#endDate").value == "") { errors.push(" 错误 [指定的结束日期无效] "); };
-	if (elemSelector("#endTime").value == "") { errors.push(" 错误 [指定的结束时间无效] "); };
+	if (elemSelector("#endDate").value == "") { errors.push(" 错误 [结束日期无效] "); };
+	if (elemSelector("#endTime").value == "") { errors.push(" 错误 [结束时间无效] "); };
 
 	if (errors.length > 0) { 
 		elemSelector("#errors").style.display = "block";

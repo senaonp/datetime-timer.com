@@ -1,4 +1,6 @@
-# [datetime-timer.com](https://datetime-timer.com/) | an online tool for timing between start and end datetimes and calculating between datetime points
+# [datetime-timer.com](https://datetime-timer.com/) | an online tool for timing and calculating between start and end datetimes
+
+<img src="./assets/datetime-timer-preview.png" width="100%" height="auto">
 
 -----
 
@@ -13,9 +15,6 @@ applet can be run in a web browser by checking out the repo and opening `index.h
 
 ## feature wishlist
 - (code) refactoring
-
-## Datetime timer preview:
-<img src="./assets/datetime-timer-preview.png" width="100%" height="auto">
 
 ## Custom datetime preview:
 <img src="./assets/datetime-timer-custom-preview.png" height="auto">
