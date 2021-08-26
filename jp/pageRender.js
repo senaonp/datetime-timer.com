@@ -58,7 +58,7 @@ elemSelector("#content").innerHTML = `
 
     <div id="result" style="display:none">
         <div id="timerPassed">
-            <h1>the datetime <span id="resultEndPassed">{{endDatetime}}</span> has passed</h1>
+            <h1>タイマーが切れました<br><span id="resultEndPassed">{{endDatetime}}</span></h1>
         </div>
         <div id="timer">
             <h1 id="timerFull">{{days}}日 - [{{hours}}:{{minutes}}:{{seconds}}]</h1>

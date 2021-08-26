@@ -67,7 +67,7 @@ var dtDiffDisplay = function() {
 		elemSelector("#timerFullTitle").innerText = timerText;
 		if (!nowStart) { roundCustom(dtDiff, dtDiffTime); return; };
 	} else {
-		elemSelector("#timerFullTitle").innerHTML = "タイマーが切れました - " + endDateTime;
+		elemSelector("#timerFullTitle").innerHTML = "タイマーが切れました<br>" + endDateTime;
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";
 	}

@@ -67,7 +67,7 @@ var dtDiffDisplay = function() {
 		elemSelector("#timerFullTitle").innerText = timerText;
 		if (!nowStart) { roundCustom(dtDiff, dtDiffTime); return; };
 	} else {
-		elemSelector("#timerFullTitle").innerHTML = "计时器完了 - " + endDateTime;
+		elemSelector("#timerFullTitle").innerHTML = "日期时间 " + endDateTime + " 完了";
 		elemSelector("#timerPassed").style.display = "block";
 		elemSelector("#timer").style.display = "none";
 	}
