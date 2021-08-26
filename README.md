@@ -15,8 +15,6 @@ applet can be run in a web browser by checking out the repo and opening `index.h
 - responsive styling for mobile
 
 ## feature wishlist
-- ability to save multiple timers using localStorage
-  - 
 - (code) refactoring
 
 ## Custom datetime preview:
