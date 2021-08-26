@@ -21,8 +21,9 @@ elemSelector("#datetimeTimerDescription").innerHTML = `
 	<br><br>`;
 
 elemSelector("#content").innerHTML = `
-    <div id="titleDiv"><h1 id="title" style="display:none">{{URL title}}<br><span id="timerFullTitle">{{time}}</span></h1></div>
-	
+	<div id="savedTimers" style="display:none"></div>
+	<div id="titleDiv"><h1 id="title" style="display:none">{{URL title}}<br><span id="timerFullTitle">{{time}}</span></h1></div>
+
 	<div id="langElem">
 		<a class="lang" href="./">en</a> | 
 		<a class="lang" href="./zh/">中文</a> | 
@@ -64,14 +65,35 @@ elemSelector("#content").innerHTML = `
             <h1 id="timerFull">{{days}}d - [{{hours}}:{{minutes}}:{{seconds}}]</h1>
             <h3 id="resultDesc">time from <span id="resultStart">{{startDatetime}}</span> to <span id="resultEnd">{{endDatetime}}</span></h3>
         </div>
-        <hr>
-        <div id="generateURLelem">
-            <div class="field bottomSpacing"><p>you can also generate a link for this result using the button below</p></div>
-            <div class="field"><label>name for URL (optional) </label> <input id="URLname" type="text"></input><br><small>note: names can include any characters except for dash "-" and underscore "_" characters</small></div>
-            <div class="center"><p id="urlnameError" style="display:none"></p></div>
-            <div class="field"><button class="button" id="getLink" onclick="generateURL()">generate a link for this result</button></div>
-            <div id="generatedURL" style="display:none">datetime URL: <a id="datetimeURL" target="_blank">https://datetime-timer.com?{{start}}-{{end}}-{{url_title}}</a></div>
-        </div>
+		<div id="outputElements">
+			<div id="saveTimerElem">
+				<div class="field genField">
+					<span class="detail">you can save the timer to the browser using the button below</span>
+				</div>
+				<div class="field">
+					<label>name for timer (optional) </label>
+					<input id="timerName" type="text"></input><br> 
+					<button class="button" id="saveTimerButton" onclick="saveTimer(elemSelector('#timerName')); initializeSavedTimers();">save the timer to the browser</button>
+					<div id="savedTimerVerify" style="display:none"></div>
+				</div>
+			</div>
+			<div id="generateURLelem">
+				<div class="field genField">
+					<span class="detail">you can generate a URL link for this result using the button below</span>
+				</div>
+				<div class="field">
+					<label>name for URL (optional) </label> <input id="URLname" type="text"></input><br>
+					<small>note: names can include any characters except for dash "-" and underscore "_" characters</small><br>
+					<button class="button" id="getLinkButton" onclick="generateURL()">generate a link for this result</button>
+				</div>
+				<div class="center">
+					<p id="urlnameError" style="display:none"></p>
+				</div>
+				<div id="generatedURL" style="display:none">
+					datetime URL: <a id="datetimeURL" target="_blank">https://datetime-timer.com?{{start}}-{{end}}-{{url_title}}</a>
+				</div>
+			</div>
+		</div>
     </div>`;
 
 elemSelector("#footer").innerHTML = `

@@ -141,6 +141,7 @@ var submitTimer = function() {
 		elemSelector("#resultStart").innerText = startDateTime;
 		elemSelector("#resultEnd").innerText = endDateTime;
 		elemSelector("#resultEndPassed").innerText = endDateTime;
+		elemSelector("#savedTimerVerify").style.display = "none";
 		generateURLquery();
 	} else {
 		return;
