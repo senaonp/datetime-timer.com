@@ -11,13 +11,19 @@ applet can be run in a web browser by checking out the repo and opening `index.h
 - display days, hours, minutes, and seconds from current time to specified end date-time
 - display time information between two specified datetimes
 - generate URL for saving and/or sharing results
+- save multiple timers to browser
 - responsive styling for mobile
 
 ## feature wishlist
+- ability to save multiple timers using localStorage
+  - 
 - (code) refactoring
 
 ## Custom datetime preview:
 <img src="./assets/datetime-timer-custom-preview.png" height="auto">
+
+## Multiple timers saved to browser
+<img src="./assets/timers.jpg" height="auto">
 
 ## Generated URL with name preview:
 - url: <a target='_blank' href='https://datetime-timer.com/?now-2022_01_01_00_00-new_year%27s_2022'>https://datetime-timer.com/?now-2022_01_01_00_00-new_year%27s_2022</a>
