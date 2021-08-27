@@ -26,13 +26,13 @@ var saveTimer = function(elem) {
 };
 
 var validateTimerName = function(name) {
-	if ((elemSelector("#timerName").value.search(/[,]/) != -1) || (name === "counter")) { 
+	if ((elemSelector("#timerName").value.search(/[,`]/) != -1) || (name === "counter")) { 
 		elemSelector("#savedTimerVerify").style.display = "block";
 		elemSelector("#savedTimerVerify").style.color = "red";
 		if (name === "counter") {
 			elemSelector("#savedTimerVerify").innerText = "error: 'counter' cannot be used as a timer name as it is a reserved keyname; please use another timer name and try again";
 		} else {
-			elemSelector("#savedTimerVerify").innerText = "error: a timer name cannot include a comma ',' character; please use another timer name and try again";
+			elemSelector("#savedTimerVerify").innerText = "error: a timer name cannot include either comma [,] or [`] backtick characters; please use another timer name and try again";
 		}
 		return false;
 	};
@@ -121,7 +121,7 @@ var renderCode = function() {
 	var storage = window.localStorage;
 	var storageKeys = Object.keys(storage);
 	for (var x=0; x<storageKeys.length; x+=1) {
-		code += "timerStorage.setItem('" + storageKeys[x] + "', '" + storage[storageKeys[x]] + "'); ";
+		code += "timerStorage.setItem(`" + storageKeys[x] + "`, `" + storage[storageKeys[x]] + "`); ";
 	}
 	elemSelector("#quickSetup").innerHTML = code + " location.reload();</span><br><br>";
 	elemSelector("#quickSetup").style.display = "block";

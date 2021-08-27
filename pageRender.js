@@ -71,8 +71,8 @@ elemSelector("#content").innerHTML = `
 					<span class="detail">you can save the timer to the browser using the button below</span>
 				</div>
 				<div class="field">
-					<label>name for timer (optional) </label>
-					<input id="timerName" type="text"></input><br> 
+					<label>name for timer (optional) </label><input id="timerName" type="text"></input><br>
+					<small>note: names can include any characters except for comma [,] or [&#96] backtick characters</small><br> 
 					<button class="button" id="saveTimerButton" onclick="saveTimer(elemSelector('#timerName')); initializeSavedTimers();">save the timer to the browser</button>
 					<div id="savedTimerVerify" style="display:none"></div>
 				</div>
@@ -83,7 +83,7 @@ elemSelector("#content").innerHTML = `
 				</div>
 				<div class="field">
 					<label>name for URL (optional) </label> <input id="URLname" type="text"></input><br>
-					<small>note: names can include any characters except for dash "-" and underscore "_" characters</small><br>
+					<small>note: names can include any characters except for dash [-] and underscore [_] characters</small><br>
 					<button class="button" id="getLinkButton" onclick="generateURL()">generate a link for this result</button>
 				</div>
 				<div class="center">
