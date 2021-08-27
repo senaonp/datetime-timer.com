@@ -117,7 +117,7 @@ var renderCode = function() {
 		elemSelector("#quickSetup").style.display = "none";
 		return;
 	};
-	var code = "you can run this code in the browser's developer console (F12 keyboard key) to setup any saved timers; <br>this is useful to have as a backup in case the browser cache is cleared<br><br><span id='timerCode'>timerStorage = window.localStorage; timerStorage.clear(); ";
+	var code = "you can run this code in the browser's developer console (F12 keyboard key) to setup any saved timers; <br>this is useful to have as a backup in case the browser cache is cleared or if any timers are accidentally deleted<br><br><span id='timerCode'>timerStorage = window.localStorage; timerStorage.clear(); ";
 	var storage = window.localStorage;
 	var storageKeys = Object.keys(storage);
 	for (var x=0; x<storageKeys.length; x+=1) {
