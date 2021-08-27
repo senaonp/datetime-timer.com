@@ -21,6 +21,7 @@ elemSelector("#datetimeTimerDescription").innerHTML = `
 	<br><br>`;
 
 elemSelector("#content").innerHTML = `
+	<div id="savedTimers" style="display:none"></div>
     <div id="titleDiv"><h1 id="title" style="display:none">{{URL title}}<br><span id="timerFullTitle">{{time}}</span></h1></div>
 	
 	<div id="langElem">
@@ -64,14 +65,37 @@ elemSelector("#content").innerHTML = `
             <h1 id="timerFull">日{{days}} - [{{hours}}:{{minutes}}:{{seconds}}]</h1>
             <h3 id="resultDesc"> 从 <span id="resultStart">{{startDatetime}}</span> 到 <span id="resultEnd">{{endDatetime}}</span></h3>
         </div>
-        <hr>
-        <div id="generateURLelem">
-            <div class="field bottomSpacing"><p>使用下面的按钮，你能生成网址</p></div>
-            <div class="field"><label>网址的名（可选的）</label> <input id="URLname" type="text"></input><br><small>注意：名不能有连字符字 “-” 还是划线字 “_” </small></div>
-            <div class="center"><p id="urlnameError" style="display:none"></p></div>
-            <div class="field"><button class="button" id="getLink" onclick="generateURL()">生成网址</button></div>
-            <div id="generatedURL" style="display:none">【日期时间的计时器】网址: <a id="datetimeURL" target="_blank">https://datetime-timer.com/zh/?{{start}}-{{end}}-{{url_title}}</a></div>
-        </div>
+        <div id="outputElements">
+			<div id="saveTimerElem">
+				<div class="field genField">
+					<span class="detail">使用下面的按钮，你能在浏览器中保存</span>
+				</div>
+				<div class="field">
+					<label>计时器的名（可选的） </label><input id="timerName" type="text"></input><br>
+					<small>注意：名不能有逗号 “,” 还是反引号 “&#96”</small><br> 
+					<button class="button" id="saveTimerButton" onclick="saveTimer(elemSelector('#timerName')); initializeSavedTimers();">保存在浏览器里计时器</button>
+					<div id="savedTimerVerify" style="display:none"></div>
+				</div>
+			</div>
+			<div id="generateURLelem">
+				<div class="field genField">
+					<span class="detail">使用下面的按钮，你能生成网址</span>
+				</div>
+				<div class="field">
+					<label>网址的名（可选的）</label>
+					<input id="URLname" type="text"></input><br>
+					<small>注意：名不能有连字符 “-” 还是下划线 “_” </small><br>
+					<button class="button" id="getLinkButton" onclick="generateURL()">生成网址</button>
+				</div>
+				</div>
+				<div class="center">
+					<p id="urlnameError" style="display:none"></p>
+				</div>
+				<div id="generatedURL" style="display:none">
+					【日期时间的计时器】网址: <a id="datetimeURL" target="_blank">https://datetime-timer.com/zh/?{{start}}-{{end}}-{{url_title}}</a>
+				</div>
+			</div>
+		</div>
     </div>`;
 
 elemSelector("#footer").innerHTML = `
