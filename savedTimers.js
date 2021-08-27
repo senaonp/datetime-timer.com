@@ -2,12 +2,14 @@ var saveTimer = function(elem) {
 	elemSelector("#savedTimerVerify").style.color = "rgb(0,0,0)";
 	var storage = window.localStorage;
 	var counter = 1;
+	var isCustom = false;
 	if (storage.getItem('counter')) {
 		counter = storage.getItem('counter');
 	}
 	var start = "now";
 	if (!nowStart) {
-		start = startDateTime;
+		start = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
+		isCustome = true;
 	};
 	var timerName = "timer_" + counter;
 	if (elem.value.length > 0) {
@@ -16,7 +18,7 @@ var saveTimer = function(elem) {
 		}
 		timerName = elem.value;
 	}
-	storage.setItem(counter.toString(), [timerName, start, endDateTime]);
+	storage.setItem(counter.toString(), [timerName, start, endDateTimes, isCustom]);
 	elemSelector('#savedTimerVerify').style.display = "block";
 	elemSelector('#savedTimerVerify').innerHTML = "<span>saved timer: <span id='savedTimerName'>" + timerName + "</span> to web browser<span>";
 	counter = parseInt(counter) + 1;
@@ -39,26 +41,48 @@ var validateTimerName = function(name) {
 };
 
 // display datetime difference for timers
+var timersText = "";
 var dtDiffDisplayTimers = function(elem, attrs) {
 	if (elem == null) {
 		return;
 	}
-	var startDateTime = null;
-	var endDateTime = new Date(attrs[2]);
+	var endDateTimes = new Date(attrs[2]);
 	if (attrs[1] === "now") {
-		startDateTime = new Date();
+		startDateTimes = new Date();
 	} else {
-		startDateTime = new Date(attrs[1]);
+		startDateTimes = new Date(attrs[1]);
 	}
-	var dtDiff = getDateTimeDiff(startDateTime, endDateTime);
+	var dtDiff = getDateTimeDiff(startDateTimes, endDateTimes);
 	var dtDiffTime = displayTime(dtDiff[1]);
 	if (dtDiff[0] >= 0) {
-		timerText = dtDiff[0] + "d - [" + dtDiffTime[0] + ":" + dtDiffTime[1] + ":"+ dtDiffTime[2] + "]";
-		elem.innerText = timerText;
-		if (attrs[1] != "now") { roundCustom(dtDiff, dtDiffTime); return; };
+		timersText = dtDiff[0] + "d - [" + dtDiffTime[0] + ":" + dtDiffTime[1] + ":"+ dtDiffTime[2] + "]";
+		if (attrs[3]) { 
+			timersText = roundCustomTimes(dtDiff, dtDiffTime);
+		};
+		elem.innerText = timersText;
 	} else {
 		elem.innerHTML = "timer has passed - " + attrs[2];
 	}
+};
+
+// estimate difference between custom dates
+var roundCustomTimes = function(dtDiff, dtDiffTime) {
+	dHMS = [dtDiff[0], dtDiffTime[0], dtDiffTime[1], dtDiffTime[2]];
+	if (dHMS[3] >= 59) {
+		dHMS[2] = parseInt(dtDiffTime[1])+1;
+		dHMS[3] = 0;
+	}
+	if (dHMS[2] == 60) {
+		dHMS[1] = parseInt(dtDiffTime[0])+1;
+		dHMS[2] = 0;
+	}
+	if (dHMS[1] == 24) {
+		dHMS[0] = parseInt(dtDiff[0])+1;
+		dHMS[1] = 0;
+	}
+	hms = displayTime(dHMS.slice(1));
+	var customTimerText = dHMS[0] + "d - [" + hms[0] + ":" + hms[1] + ":"+ hms[2] + "]";
+	return customTimerText;
 };
 
 var timerItems = [];
