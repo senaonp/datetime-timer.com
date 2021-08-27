@@ -117,13 +117,13 @@ var renderCode = function() {
 		elemSelector("#quickSetup").style.display = "none";
 		return;
 	};
-	var code = "you can run this code in the browser's developer console (F12 keyboard key) to setup any saved timers; <br>this is useful to have as a backup in case the browser cache is cleared or if any timers are accidentally deleted<br><br><span id='timerCode'>timerStorage = window.localStorage; timerStorage.clear(); ";
+	var code = "you can run this code in the browser's developer console (F12 keyboard key) to setup any saved timers; <br>this is useful to have as a backup in case the browser cache is cleared or if any timers are accidentally deleted<br>you can also share this code with others so they can use your timer setup; however, please note that this code will overwrite any existing timers in the browser<br><br>browser_code:<br><span id='timerCode'>timerStorage = window.localStorage; timerStorage.clear(); ";
 	var storage = window.localStorage;
 	var storageKeys = Object.keys(storage);
 	for (var x=0; x<storageKeys.length; x+=1) {
 		code += "timerStorage.setItem('" + storageKeys[x] + "', '" + storage[storageKeys[x]] + "'); ";
 	}
-	elemSelector("#quickSetup").innerHTML = code + "</span><br><br>";
+	elemSelector("#quickSetup").innerHTML = code + " location.reload();</span><br><br>";
 	elemSelector("#quickSetup").style.display = "block";
 }
 
