@@ -310,4 +310,8 @@ body {
 	#savedTimers p {
 		line-height: 150%;
 	}
+	#renderCodeButton {
+		margin: 10px 0px 0px 0px;
+		float: none;
+	}
 }

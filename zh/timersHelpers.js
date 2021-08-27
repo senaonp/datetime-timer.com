@@ -9,9 +9,9 @@ var saveTimer = function(elem) {
 	var start = "now";
 	if (!nowStart) {
 		start = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
-		isCustome = true;
+		isCustom = true;
 	};
-	var timerName = "timer_" + counter;
+	var timerName = "日期和时间计时器_" + counter;
 	if (elem.value.length > 0) {
 		if (!validateTimerName(elem.value)) {
 			return;
