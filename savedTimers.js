@@ -90,7 +90,7 @@ var timerItem = [];
 var renderTimers = function() {
 	var storage = window.localStorage;
 	var storageKeys = Object.keys(storage);
-	var savedTimers = "<h1>timers: </h1>";
+	var savedTimers = "<h1>timers: <button id='renderCodeButton' onclick='renderCode()'><small>get browser code for timers </small></button></h1><small id='quickSetup' style='display:none'></small>";
 	if (storageKeys.length == 1 && storageKeys[0] == "counter") {
 		elemSelector("#savedTimers").innerHTML = "";
 		return;
@@ -108,6 +108,23 @@ var renderTimers = function() {
 	for (var y=0; y<timerItems.length; y+=1) {
 		dtDiffDisplayTimers(elemSelector("#"+timerItems[y][1]), timerItems[y][0]);
 	}
+}
+
+var renderCode = function() {
+	elemSelector("#renderCodeButton").innerHTML = "<small>hide browser code</small>";
+	if (elemSelector("#quickSetup").style.display == "block") {
+		elemSelector("#renderCodeButton").innerHTML = "<small>get browser code for timers</small>";
+		elemSelector("#quickSetup").style.display = "none";
+		return;
+	};
+	var code = "you can run this code in the browser's developer console (F12 keyboard key) to setup any saved timers; <br>this is useful to have as a backup in case the browser cache is cleared<br><br><span id='timerCode'>timerStorage = window.localStorage; timerStorage.clear(); ";
+	var storage = window.localStorage;
+	var storageKeys = Object.keys(storage);
+	for (var x=0; x<storageKeys.length; x+=1) {
+		code += "timerStorage.setItem('" + storageKeys[x] + "', '" + storage[storageKeys[x]] + "'); ";
+	}
+	elemSelector("#quickSetup").innerHTML = code + "</span><br><br>";
+	elemSelector("#quickSetup").style.display = "block";
 }
 
 var setTimerInterval = function(elem) {
@@ -128,7 +145,7 @@ var initializeSavedTimers = function() {
 	for (var z = 0; z < savedTimerIntervals.length; z += 1) {
 		clearInterval(savedTimerIntervals[z]);
 	}
-	if (Object.keys(window.localStorage).length == 1 && (Object.keys(window.localStorage)[0] === "counter")) {
+	if (Object.keys(window.localStorage).length == 1 && (Object.keys(window.localStorage)[0] === "counter") || Object.keys(window.localStorage).length == 0) {
 		window.localStorage.setItem('counter', 1);
 		elemSelector("#savedTimers").style.display = "none";
 		return;

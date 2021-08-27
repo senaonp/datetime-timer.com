@@ -207,6 +207,12 @@ body {
 #timerFull {
 	font-size: 2.5em;
 }
+#timerCode {
+	color: springgreen;
+	padding: 5px;
+	background-color: rgb(80,80,80);
+	line-height: 150%;
+}
 
 /* --------- saved timers ---------- */
 
@@ -244,6 +250,10 @@ body {
 }
 #generateURLelem {
 	border-radius: 0 5px 5px 0;
+}
+#renderCodeButton {
+	margin: 20px 20px 0 0;
+	float: right;
 }
 
 /* ------------ footer ------------- */
