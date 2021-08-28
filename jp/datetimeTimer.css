@@ -281,7 +281,9 @@ body {
 		margin-top: 10px;
 		height: 50%;
 	}
-	
+	#navbar li {
+		font-size: 0.6em;
+	}
 	#generateURLelem, #saveTimerElem {
 		padding: 20px 10px;
 		width: 80%;

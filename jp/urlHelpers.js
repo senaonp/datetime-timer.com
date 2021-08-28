@@ -22,7 +22,7 @@ var validateURLname = function() {
 	if (urlNameField.search(/[-_]/) != -1) { 
 		elemSelector("#urlnameError").style.display = "block";
 		elemSelector("#generatedURL").style.display = "none";
-		elemSelector("#urlnameError").innerText = "エラー　URL名はハイフン字「-」と アンダースコア字「_」が含でありますん。（URL構文解析ためです）。ハイフン字と アンダースコア字ありませんのURL名が入力します。次に再提出下さい。";
+		elemSelector("#urlnameError").innerText = "エラー　URL名は「-」と「_」が含めるべきではありません。（URL構文解析ためです）。「-」と 「_」ありませんのURL名が入力します。次に再提出下さい。";
 		return false;
 	};
 	elemSelector("#urlnameError").style.display = "none";

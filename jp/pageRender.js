@@ -21,6 +21,7 @@ elemSelector("#datetimeTimerDescription").innerHTML = `
 	<br><br>`;
 
 elemSelector("#content").innerHTML = `
+	<div id="savedTimers" style="display:none"></div>
     <div id="titleDiv"><h1 id="title" style="display:none">{{URL title}}<br><span id="timerFullTitle">{{time}}</span></h1></div>
 	
 	<div id="langElem">
@@ -64,14 +65,36 @@ elemSelector("#content").innerHTML = `
             <h1 id="timerFull">{{days}}日 - [{{hours}}:{{minutes}}:{{seconds}}]</h1>
             <h3 id="resultDesc"><span id="resultStart">{{startDatetime}}</span> から <span id="resultEnd">{{endDatetime}}</span>　まで期間です。</h3>
         </div>
-        <hr>
-        <div id="generateURLelem">
-            <div class="field bottomSpacing"><p>下のボタンで「日時タイマー」URLを生成できます</p></div>
-            <div class="field"><label>URL名 （オプショナル） </label> <input id="URLname" type="text"></input><br><small>注意: URL名はハイフン字「-」とアンダースコア字「_」が含でありますん</small></div>
-            <div class="center"><p id="urlnameError" style="display:none"></p></div>
-            <div class="field"><button class="button" id="getLink" onclick="generateURL()">このタイマーのURLを生成します</button></div>
-            <div id="generatedURL" style="display:none">日時URL: <a id="datetimeURL" target="_blank">https://datetime-timer.com/jp/?{{start}}-{{end}}-{{url_title}}</a></div>
-        </div>
+		<div id="outputElements">
+			<div id="saveTimerElem">
+				<div class="field genField">
+					<span class="detail">下のボタンでウェブブラウザに「日時タイマー」を保存します</span>
+				</div>
+				<div class="field">
+					<label>タイマー名 （オプショナル） </label><input id="timerName" type="text"></input><br>
+					<small>注意: URL名は「,」と「&#96」が含すべきではありません</small><br> 
+					<button class="button" id="saveTimerButton" onclick="saveTimer(elemSelector('#timerName')); initializeSavedTimers();">ウェブブラウザに「日時タイマー」を保存します</button>
+					<div id="savedTimerVerify" style="display:none"></div>
+				</div>
+			</div>
+			<div id="generateURLelem">
+				<div class="field genField">
+					<span class="detail">下のボタンで「日時タイマー」URLを生成できます</span>
+				</div>
+				<div class="field">
+					<label>URL名 （オプショナル） </label>
+					<input id="URLname" type="text"></input><br>
+					<small>注意: URL名は「-」と「_」が含すべきではありません</small><br>
+					<button class="button" id="getLinkButton" onclick="generateURL()">このタイマーのURLを生成します</button>
+				</div>
+				<div class="center">
+					<p id="urlnameError" style="display:none"></p>
+				</div>
+				<div id="generatedURL" style="display:none">
+					日時タイマーURL: <a id="datetimeURL" target="_blank">https://datetime-timer.com/jp/?{{start}}-{{end}}-{{url_title}}</a>
+				</div>
+			</div>
+		</div>
     </div>`;
 
 elemSelector("#footer").innerHTML = `

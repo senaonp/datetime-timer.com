@@ -136,6 +136,7 @@ var submitTimer = function() {
 			startDateTime = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
 		};
 		endDateTime = new Date(elemSelector("#endDate").value+"T"+elemSelector("#endTime").value);
+		endDateTimes = new Date(elemSelector("#endDate").value+"T"+elemSelector("#endTime").value);
 		dateDiff = endDateTime - startDateTime;
 		dtDiffDisplay();
 		elemSelector("#resultStart").innerText = startDateTime;
@@ -156,6 +157,8 @@ var timerCompleted = false;
 
 var startDateTime = null;
 var endDateTime = null;
+var startDateTimes = null;
+var endDateTimes = null;
 var dateDiff = null;
 var urlEndDateTime = null;
 var urlStartDateTime = null;
