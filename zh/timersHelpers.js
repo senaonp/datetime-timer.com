@@ -2,14 +2,12 @@ var saveTimer = function(elem) {
 	elemSelector("#savedTimerVerify").style.color = "rgb(0,0,0)";
 	var storage = window.localStorage;
 	var counter = 1;
-	var isCustom = false;
 	if (storage.getItem('counter')) {
 		counter = storage.getItem('counter');
 	}
 	var start = "now";
 	if (!nowStart) {
 		start = new Date(elemSelector("#startDateCustom").value+"T"+elemSelector("#startTimeCustom").value);
-		isCustom = true;
 	};
 	var timerName = "日期和时间计时器_" + counter;
 	if (elem.value.length > 0) {
@@ -18,7 +16,7 @@ var saveTimer = function(elem) {
 		}
 		timerName = elem.value;
 	}
-	storage.setItem(counter.toString(), [timerName, start, endDateTimes, isCustom]);
+	storage.setItem(counter.toString(), [timerName, start, endDateTimes]);
 	elemSelector('#savedTimerVerify').style.display = "block";
 	elemSelector('#savedTimerVerify').innerHTML = "<span>保存计时器： <span id='savedTimerName'>" + timerName + "</span></span>";
 	counter = parseInt(counter) + 1;
@@ -56,7 +54,7 @@ var dtDiffDisplayTimers = function(elem, attrs) {
 	var dtDiffTime = displayTime(dtDiff[1]);
 	if (dtDiff[0] >= 0) {
 		timersText = dtDiff[0] + "日 - [" + dtDiffTime[0] + ":" + dtDiffTime[1] + ":"+ dtDiffTime[2] + "]";
-		if (attrs[3]) { 
+		if (attrs[1] !== "now") { 
 			timersText = roundCustomTimes(dtDiff, dtDiffTime);
 		};
 		elem.innerText = timersText;
