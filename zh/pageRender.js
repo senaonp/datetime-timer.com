@@ -87,7 +87,6 @@ elemSelector("#content").innerHTML = `
 					<small>注意：名不能有连字符 “-” 还是下划线 “_” </small><br>
 					<button class="button" id="getLinkButton" onclick="generateURL()">生成网址</button>
 				</div>
-				</div>
 				<div class="center">
 					<p id="urlnameError" style="display:none"></p>
 				</div>

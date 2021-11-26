@@ -83,7 +83,7 @@ elemSelector("#content").innerHTML = `
 				</div>
 				<div class="field">
 					<label>name for URL (optional) </label> <input id="URLname" type="text"></input><br>
-					<small>note: names can include any characters except for dash [-] and underscore [_] characters</small><br>
+					<small>note: names can include any characters except for dash [-] or underscore [_] characters</small><br>
 					<button class="button" id="getLinkButton" onclick="generateURL()">generate a link for this result</button>
 				</div>
 				<div class="center">
