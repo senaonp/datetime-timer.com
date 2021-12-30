@@ -95,8 +95,10 @@ var URLworkflow = function() {
 	if (name) {
 		elemSelector("#title").innerHTML = name.replaceAll("_", " ") +
 		"<br><br><span id='timerFullTitle'>{{time}}</span>";
-		elemSelector("#title").style.display = "block";
+	} else {
+		elemSelector("#title").innerHTML = "<span id='timerFullTitle'>{{time}}</span>";
 	}
+	elemSelector("#title").style.display = "block";
 
 	// fill out end date-time fields
 	var endPts = end.split("_");
