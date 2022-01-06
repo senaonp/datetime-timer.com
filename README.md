@@ -14,6 +14,7 @@ applet can be run in a web browser by checking out the repo and opening `index.h
 - save multiple timers to browser
 - responsive styling for mobile
 - datetime-timer language versions
+  - English - https://datetime-timer.com
   - Chinese - https://datetime-timer.com/zh/
   - Japanese - https://datetime-timer.com/jp/
 
