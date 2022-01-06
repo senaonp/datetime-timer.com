@@ -13,6 +13,9 @@ applet can be run in a web browser by checking out the repo and opening `index.h
 - generate URL for saving and/or sharing results
 - save multiple timers to browser
 - responsive styling for mobile
+- datetime-timer language versions
+  - Chinese - https://datetime-timer.com/zh/
+  - Japanese - https://datetime-timer.com/jp/
 
 ## feature wishlist
 - (code) refactoring
