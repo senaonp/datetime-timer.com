@@ -7,6 +7,15 @@
 ## usage
 applet can be run in a web browser by checking out the repo and opening `index.html` in a web browser
 
+## running datetime-timer on NGINX web server with Docker
+```
+docker build --tag datetime-timer:dev .
+docker run -p 8002:80 -d --name datetime-timer datetime-timer:dev
+# with this config, datetime-timer runs on localhost:8002
+```
+
+-----
+
 ## features
 - display days, hours, minutes, and seconds from current time to specified end date-time
 - display time information between two specified datetimes
