@@ -96,7 +96,7 @@ var renderTimers = function() {
 	for (var x=0; x<storageKeys.length; x+=1) {
 		if (storageKeys[x] === "counter") { continue; }
 		timerItem = localStorage.getItem(storageKeys[x]).split(",");
-		savedTimers += "<p><span class='storedTimerName'>" + timerItem[0] + "</span> <span class='storedTimerTime' id='storedTimer" + storageKeys[x] + "'></span> <button class='deleteTimerButton' onclick='removeStoredTimer(`" + storageKeys[x] + "`)'>delete</button></p>";
+		savedTimers += "<p><span class='storedTimerName'>" + timerItem[0] + "</span> <span class='storedTimerTime' id='storedTimer" + storageKeys[x] + "'></span>" + " <span class='storedTimerFullDateTime'>" + timerItem[2] + "</span>" + "<button class='deleteTimerButton' onclick='removeStoredTimer(`" + storageKeys[x] + "`)'>delete</button></p>";
 		timerItems.push([timerItem, "storedTimer"+storageKeys[x]]);
 	}
 	elemSelector("#savedTimers").style.display = "block";

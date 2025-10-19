@@ -242,6 +242,13 @@ body {
 .storedTimerTime {
 	padding-left: 20px;
 }
+.storedTimerFullDateTime {
+	background-color: rgb(80,80,80);
+	color: rgb(200,200,200);
+	font-size: 0.8em;
+	padding: 5px 10px;
+	margin-left: 10px;
+}
 .deleteTimerButton {
 	margin-left: 20px;
 }
