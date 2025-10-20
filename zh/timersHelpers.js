@@ -104,11 +104,11 @@ var sortKeys = function(keyList) {
 		keyList.splice(countIndex, 1);
 	}
 	keyList = listToType(keyList, "number");
+	var temp = null;
 	var x = 1;
 	while (x == 1) {
 		x = 0;
 		for (var a=0; a<keyList.length; a+=1) {
-			var temp = null;
 			if (keyList[a] > keyList[a+1]) {
 				temp = keyList[a];
 				keyList[a] = keyList[a+1];
@@ -127,10 +127,6 @@ var renderTimers = function() {
 	var storage = window.localStorage;
 	var storageKeys = sortKeys(Object.keys(storage));
 	var savedTimers = "<h1>日期和时间计时器: <button id='renderCodeButton' onclick='renderCode()'>得到浏览器的代码</button></h1><p id='quickSetup' style='display:none'></p>";
-	if (storageKeys.length == 1 && storageKeys[0] == "counter") {
-		elemSelector("#savedTimers").innerHTML = "";
-		return;
-	}
 	for (var x=0; x<storageKeys.length; x+=1) {
 		timerItem = localStorage.getItem(storageKeys[x]).split(",");
 		savedTimers += "<p><span class='storedTimerName'>" + timerItem[0] + "</span> <span class='storedTimerTime' id='storedTimer" + storageKeys[x] + "'></span>" + " <span class='storedTimerFullDateTime'>" + timerItem[2] + "</span>" + "<button class='deleteTimerButton' onclick='removeStoredTimer(`" + storageKeys[x] + "`)'>删除</button></p>";
