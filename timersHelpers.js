@@ -83,18 +83,55 @@ var roundCustomTimes = function(dtDiff, dtDiffTime) {
 	return customTimerText;
 };
 
+var listToType = function(list, type) {
+	var result = [];
+	for (var a=0; a<list.length; a+=1) {
+		if (type === "number") {
+			result.push(parseInt(list[a]));
+		} else if (type === "string") {
+			result.push(list[a].toString());
+		} else {
+			result.push(list(a));
+		}
+	}
+	console.log(result);
+	return result;
+}
+
+var sortKeys = function(keyList) {
+	if (keyList.indexOf("counter") != -1) {
+		countIndex = keyList.indexOf("counter");
+		keyList.splice(countIndex, 1);
+	}
+	keyList = listToType(keyList, "number");
+	var x = 1;
+	while (x == 1) {
+		x = 0;
+		for (var a=0; a<keyList.length; a+=1) {
+			var temp = null;
+			if (keyList[a] > keyList[a+1]) {
+				temp = keyList[a];
+				keyList[a] = keyList[a+1];
+				keyList[a+1] = temp;
+				x = 1;
+			}
+		}
+	}
+	keyList = listToType(keyList, "string");
+	return keyList;
+}
+
 var timerItems = [];
 var timerItem = [];
 var renderTimers = function() {
 	var storage = window.localStorage;
-	var storageKeys = Object.keys(storage);
+	var storageKeys = sortKeys(Object.keys(storage));
 	var savedTimers = "<h1>timers: <button id='renderCodeButton' onclick='renderCode()'><small>get browser code for timers </small></button></h1><small id='quickSetup' style='display:none'></small>";
 	if (storageKeys.length == 1 && storageKeys[0] == "counter") {
 		elemSelector("#savedTimers").innerHTML = "";
 		return;
 	}
 	for (var x=0; x<storageKeys.length; x+=1) {
-		if (storageKeys[x] === "counter") { continue; }
 		timerItem = localStorage.getItem(storageKeys[x]).split(",");
 		savedTimers += "<p><span class='storedTimerName'>" + timerItem[0] + "</span> <span class='storedTimerTime' id='storedTimer" + storageKeys[x] + "'></span>" + " <span class='storedTimerFullDateTime'>" + timerItem[2] + "</span>" + "<button class='deleteTimerButton' onclick='removeStoredTimer(`" + storageKeys[x] + "`)'>delete</button></p>";
 		timerItems.push([timerItem, "storedTimer"+storageKeys[x]]);
