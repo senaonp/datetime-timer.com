@@ -94,7 +94,6 @@ var listToType = function(list, type) {
 			result.push(list(a));
 		}
 	}
-	console.log(result);
 	return result;
 }
 
